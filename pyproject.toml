@@ -4,6 +4,7 @@ version = "0.1.0"
 requires-python = ">=3.10"
 dependencies = [
     "pytest>=9.0.3",
+    "pytest-regsmart @ git+https://github.com/leticosta4/pytest-regsmart.git@dev",
 ]
 
 [tool.pytest.ini_options]

@@ -22,5 +22,8 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
-      - name: Run tests
+      - name: Run tests (pytest normal)
         run: uv run pytest -v
+
+      - name: Run tests (pytest-regsmart)
+        run: uv run pytest --regsmart -v
