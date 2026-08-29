@@ -1,0 +1,34 @@
+name: Test pytest-regsmart
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      
+      - name: Debug Git
+        run: |
+          git status
+          git branch -a
+          git log --oneline --all -5
+          git remote -v
+
+      - name: Install pytest
+        run: pip install pytest
+
+      # - name: Install pytest-regsmart
+      #   run: pip install git+https://github.com/leticosta4/pytest-regsmart.git@dev
+
+      - name: Run tests
+        #run: pytest --regsmart -v
+        run: pytest -v
