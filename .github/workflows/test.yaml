@@ -15,20 +15,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      
-      - name: Debug Git
-        run: |
-          git status
-          git branch -a
-          git log --oneline --all -5
-          git remote -v
 
-      - name: Install pytest
-        run: pip install pytest
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
 
-      # - name: Install pytest-regsmart
-      #   run: pip install git+https://github.com/leticosta4/pytest-regsmart.git@dev
+      - name: Install dependencies
+        run: uv sync --frozen
 
       - name: Run tests
-        #run: pytest --regsmart -v
-        run: pytest -v
+        run: uv run pytest -v
