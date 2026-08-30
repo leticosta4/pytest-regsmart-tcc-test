@@ -1,5 +1,5 @@
 def add(a, b):
-    "testando meu plugin"
+    "testando meu pluginTESTANDO MAIS UMA VEZ"
     return a + b
 
 
