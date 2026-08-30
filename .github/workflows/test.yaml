@@ -32,6 +32,9 @@ jobs:
           restore-keys: |
             pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
 
+      - name: Run tests (pytest-regsmart ranking by failure)
+        run: uv run pytest -v --regsmart --rank-weight=0-1
+        
       - name: Run tests (pytest normal)
         run: uv run pytest -v
 
@@ -40,9 +43,6 @@ jobs:
 
       - name: Run tests (pytest-regsmart per file though)
         run: uv run pytest -v --regsmart --diff-level=file
-
-      - name: Run tests (pytest-regsmart ranking by failure)
-        run: uv run pytest -v --regsmart --rank-weight=0-1
 
       - name: Run tests (pytest-regsmart without ranking)
         run: uv run pytest -v --regsmart --no-rank
