@@ -441,7 +441,7 @@ wheels = [
 [[package]]
 name = "pytest-regsmart"
 version = "0.6.3"
-source = { git = "https://github.com/leticosta4/pytest-regsmart.git?rev=dev#7ad60c906aec652a04bdf3fe129b239450f8233a" }
+source = { git = "https://github.com/leticosta4/pytest-regsmart.git?rev=dev#5227497b276798821d2da950c25e84fd800d00ea" }
 dependencies = [
     { name = "gitpython" },
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
