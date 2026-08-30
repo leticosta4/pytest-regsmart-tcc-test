@@ -7,9 +7,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -22,5 +23,33 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
-      - name: Run tests
+      - name: Restore pytest-regsmart cache
+        id: restore-pytest-regsmart-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranked_selection_data
+          key: pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
+          restore-keys: |
+            pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
+
+      - name: Run tests (pytest normal)
         run: uv run pytest -v
+
+      - name: Run tests (pytest-regsmart)
+        run: uv run pytest -v --regsmart
+
+      - name: Run tests (pytest-regsmart per file though)
+        run: uv run pytest -v --regsmart --diff-level=file
+
+      - name: Run tests (pytest-regsmart ranking by failure)
+        run: uv run pytest -v --regsmart --rank-weight=0-1
+
+      - name: Run tests (pytest-regsmart without ranking)
+        run: uv run pytest -v --regsmart --no-rank
+
+      - name: Save pytest-regsmart cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranked_selection_data
+          key: pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}-${{ github.run_id }}
