@@ -6,4 +6,4 @@ def test_mult():
 
 
 def test_div():
-    assert div(5, 3) == 2
+    assert div(6, 3) == 2
