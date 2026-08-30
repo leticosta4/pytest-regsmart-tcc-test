@@ -2,8 +2,8 @@ from calculator2 import mult, div
 
 
 def test_mult():
-    assert mult(2, 3) == 5
+    assert mult(2, 3) == 6
 
 
 def test_div():
-    assert div(5, 3) == 2
+    assert div(6, 3) == 2
