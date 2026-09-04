@@ -1,4 +1,4 @@
-from calculator2 import mult, div
+from calculator2 import mult, div, seila
 
 
 def test_mult():
@@ -7,3 +7,7 @@ def test_mult():
 
 def test_div():
     assert div(6, 3) == 2
+
+
+def test_seila():
+    assert seila("test") == "seilatest"
