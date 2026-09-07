@@ -29,7 +29,7 @@ jobs:
           key: pytest-ranking-cache-${{ github.workflow }}-${{ runner.os }}-${{ matrix.python }}
 
       - name: Run tests (pytest-ranking ordering by recently-failed tests)
-        run: uv run pytest -v --ranking --rank-weight=0-1-0
+        run: uv run pytest -v --rank --rank-weight=0-1-0
 
       - name: Save pytest-ranking cache
         id: save-pytest-ranking-cache
