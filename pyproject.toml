@@ -5,7 +5,7 @@ requires-python = ">=3.10"
 dependencies = [
     "pytest>=9.0.3",
     "pytest-ranking>=0.3.4",
-    "pytest-regsmart @ git+https://github.com/leticosta4/pytest-regsmart.git@main",
+    "pytest-regsmart @ git+https://github.com/leticosta4/pytest-regsmart.git@hotfix/rename-old-ranking-flags",
 ]
 
 [tool.pytest.ini_options]
