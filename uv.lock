@@ -456,7 +456,7 @@ wheels = [
 [[package]]
 name = "pytest-regsmart"
 version = "0.7.0"
-source = { git = "https://github.com/leticosta4/pytest-regsmart.git?rev=hotfix%2Frename-old-ranking-flags#df83a85f0a4df3cde36bf206e3c942523abb49b2" }
+source = { git = "https://github.com/leticosta4/pytest-regsmart.git?rev=main#74f1e3ee7f10156928f083b4bc12bfeed9790262" }
 dependencies = [
     { name = "gitpython" },
     { name = "numpy", version = "2.2.6", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.11'" },
@@ -489,7 +489,7 @@ dependencies = [
 requires-dist = [
     { name = "pytest", specifier = ">=9.0.3" },
     { name = "pytest-ranking", specifier = ">=0.3.4" },
-    { name = "pytest-regsmart", git = "https://github.com/leticosta4/pytest-regsmart.git?rev=hotfix%2Frename-old-ranking-flags" },
+    { name = "pytest-regsmart", git = "https://github.com/leticosta4/pytest-regsmart.git?rev=main" },
 ]
 
 [[package]]
