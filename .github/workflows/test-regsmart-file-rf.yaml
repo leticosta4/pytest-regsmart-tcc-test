@@ -1,4 +1,4 @@
-name: Test pytest-regsmart (RecentFail ranking mode, selection via file)
+name: Test pytest-regsmart (file level RTS and RF RTP)
 
 on:
   push:
@@ -32,7 +32,7 @@ jobs:
           restore-keys: |
             pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
 
-      - name: Run tests (pytest-regsmart ordering by recently-failed tests, selection via file)
+      - name: Run tests (pytest-regsmart file level RTS and RF RTP)
         run: uv run pytest -v --regsmart --diff-level=file --ranking-weight=0-1
 
       - name: Save pytest-regsmart cache

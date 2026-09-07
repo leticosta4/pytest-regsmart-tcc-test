@@ -1,4 +1,4 @@
-name: Test pytest-regsmart (without any ranking mode, selection via file)
+name: Test pytest-regsmart (file level RTS --no-rank)
 
 on:
   push:

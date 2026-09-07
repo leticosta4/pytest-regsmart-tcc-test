@@ -1,4 +1,4 @@
-name: Test pytest-regsmart (without any ranking mode)
+name: Test pytest-regsmart (--no-rank)
 
 on:
   push:
@@ -23,5 +23,5 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
-      - name: Run tests (pytest-regsmart - RTS Only)
+      - name: Run tests (pytest-regsmart --no-rank)
         run: uv run pytest -v --regsmart --no-rank

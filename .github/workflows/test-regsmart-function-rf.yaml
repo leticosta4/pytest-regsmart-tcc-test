@@ -1,4 +1,4 @@
-name: Test pytest-regsmart (RecentFail ranking mode)
+name: Test pytest-regsmart (RecentFail RTP)
 
 on:
   push:
