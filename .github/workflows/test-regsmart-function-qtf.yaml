@@ -1,0 +1,43 @@
+name: Test pytest-regsmart default
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install dependencies
+        run: uv sync --frozen
+
+      - name: Restore pytest-regsmart cache
+        id: restore-pytest-regsmart-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranked_selection_data
+          key: pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
+          restore-keys: |
+            pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
+
+      - name: Run tests (pytest-regsmart default)
+        run: uv run pytest -v --regsmart
+
+      - name: Save pytest-regsmart cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranked_selection_data
+          key: pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}-${{ github.run_id }}
