@@ -2,6 +2,8 @@ name: Test pytest-regsmart (file level RTS and RF RTP)
 
 on:
   push:
+   branches-ignore:
+    - main
   pull_request:
 
 jobs:

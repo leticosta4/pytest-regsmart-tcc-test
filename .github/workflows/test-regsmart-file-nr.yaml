@@ -2,6 +2,8 @@ name: Test pytest-regsmart (file level RTS --no-rank)
 
 on:
   push:
+   branches-ignore:
+    - main
   pull_request:
 
 jobs:
