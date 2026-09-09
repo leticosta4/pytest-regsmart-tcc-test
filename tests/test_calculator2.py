@@ -1,4 +1,4 @@
-from calculator2 import mult, div
+from calculator2 import mult, div, aleatorio
 
 
 def test_mult():
@@ -7,3 +7,7 @@ def test_mult():
 
 def test_div():
     assert div(6, 3) == 2
+
+
+def test_aleatorio():
+    assert aleatorio() == "oxe oxi"
