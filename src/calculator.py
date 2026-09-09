@@ -7,4 +7,5 @@ def subtract(a, b):
 
 
 def pre_aleatorio():
+    "teste pre_aleatorio e teste aleatorio devem ser selecionados juntos, pois aleatorio depende de pre_aleatorio"
     return "oxe"
