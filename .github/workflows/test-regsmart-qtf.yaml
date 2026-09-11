@@ -1,7 +1,9 @@
-name: Test pytest-regsmart (RecentFail RTP)
+name: Test pytest-regsmart default
 
 on:
   push:
+   branches-ignore:
+    - main
   pull_request:
 
 jobs:
@@ -32,8 +34,8 @@ jobs:
           restore-keys: |
             pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
 
-      - name: Run tests (pytest-regsmart ordering by recently-failed tests)
-        run: uv run pytest -v --regsmart --ranking-weight=0-1
+      - name: Run tests (pytest-regsmart default)
+        run: uv run pytest -v --regsmart
 
       - name: Save pytest-regsmart cache
         if: always()
