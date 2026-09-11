@@ -1,4 +1,4 @@
-name: Test pytest-regsmart (file level RTS and QTF RTP)
+name: Test pytest-regsmart (hybrid RTP)
 
 on:
   push:
@@ -34,8 +34,8 @@ jobs:
           restore-keys: |
             pytest-regsmart-cache-${{ github.workflow }}-${{ runner.os }}
 
-      - name: Run tests (pytest-regsmart file level RTS and QTF RTP)
-        run: uv run pytest -v --regsmart --diff-level=file
+      - name: Run tests (pytest-regsmart ordering by recently-failed tests AND runtime)
+        run: uv run pytest -v --regsmart --ranking-weight=1-1
 
       - name: Save pytest-regsmart cache
         if: always()
