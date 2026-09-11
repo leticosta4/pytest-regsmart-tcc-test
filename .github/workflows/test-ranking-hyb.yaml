@@ -1,4 +1,4 @@
-name: Test pytest-ranking SimChgPath mode
+name: Test pytest-ranking hybrid
 
 on:
   push:
@@ -30,8 +30,8 @@ jobs:
           path: ${{ github.workspace }}/.pytest_cache/v/pytest_ranking_data
           key: pytest-ranking-cache-${{ github.workflow }}-${{ runner.os }}-${{ matrix.python }}
 
-      - name: Run tests (pytest-ranking ordering by tests whose IDs are more textually similar to the paths of Python files changed)
-        run: uv run pytest -v --rank --rank-weight=0-0-1
+      - name: Run tests (pytest-ranking hybrid)
+        run: uv run pytest -v --rank --rank-weight=1-1-1
 
       - name: Save pytest-ranking cache
         id: save-pytest-ranking-cache
