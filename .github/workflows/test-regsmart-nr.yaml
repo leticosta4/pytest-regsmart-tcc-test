@@ -1,7 +1,9 @@
-name: Test pytest-regsmart (file level RTS --no-rank)
+name: Test pytest-regsmart (--no-rank)
 
 on:
   push:
+   branches-ignore:
+    - main
   pull_request:
 
 jobs:
@@ -23,5 +25,5 @@ jobs:
       - name: Install dependencies
         run: uv sync --frozen
 
-      - name: Run tests (pytest-regsmart - RTS Only and per file)
-        run: uv run pytest -v --regsmart --diff-level=file --no-rank
+      - name: Run tests (pytest-regsmart --no-rank)
+        run: uv run pytest -v --regsmart --no-rank
